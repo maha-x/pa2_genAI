@@ -16,7 +16,7 @@ def _encode(tokenizer, text):
     return [int(t) for t in ids]
 
 
-def build_sft_batch(tokenizer, prompts, responses, max_length):
+def build_sft_batch(tokenizer, prompts, responses, max_length, max_prompt_length=None):
     eos_id = getattr(tokenizer, "eos_token_id", None)
     pad_id = getattr(tokenizer, "pad_token_id", None)
     if pad_id is None:
@@ -25,6 +25,8 @@ def build_sft_batch(tokenizer, prompts, responses, max_length):
     rows = []
     for prompt, response in zip(prompts, responses):
         p_ids = _encode(tokenizer, prompt)
+        if max_prompt_length is not None and len(p_ids) > max_prompt_length:
+            p_ids = p_ids[-max_prompt_length:]   # keep the END of the prompt
         r_ids = _encode(tokenizer, response)
         if eos_id is not None:
             r_ids = r_ids + [eos_id]            # add EOS first ...
@@ -85,3 +87,40 @@ def compute_sft_loss(model, tokenizer, prompts, responses, max_length):
     batch = _to_device(batch, _model_device(model))
     seq_logps, n_tokens = response_logprobs_from_batch(model, batch)
     return -seq_logps.sum() / n_tokens.sum().clamp(min=1)
+
+
+# ----------------------------- DPO -----------------------------
+
+def build_dpo_batch(tokenizer, prompts, chosen_responses, rejected_responses,
+                    max_length, max_prompt_length=None):
+    """Two aligned LM batches: same prompts, chosen answers vs rejected answers."""
+    return {
+        "chosen": build_sft_batch(tokenizer, prompts, chosen_responses, max_length, max_prompt_length),
+        "rejected": build_sft_batch(tokenizer, prompts, rejected_responses, max_length, max_prompt_length),
+    }
+
+
+def compute_dpo_loss_from_logps(policy_chosen_logps, policy_rejected_logps,
+                                reference_chosen_logps, reference_rejected_logps, beta):
+    """-log sigmoid(beta * ((pol_c - pol_r) - (ref_c - ref_r))), averaged over the batch."""
+    dev, dt = policy_chosen_logps.device, policy_chosen_logps.dtype
+    ref_c = reference_chosen_logps.detach().to(device=dev, dtype=dt)    # reference gets no gradient
+    ref_r = reference_rejected_logps.detach().to(device=dev, dtype=dt)
+    margin = (policy_chosen_logps - policy_rejected_logps) - (ref_c - ref_r)
+    return -F.logsigmoid(beta * margin).mean()
+
+
+def compute_dpo_loss(policy_model, reference_model, tokenizer, prompts,
+                     chosen_responses, rejected_responses, beta, max_length):
+    batch = build_dpo_batch(tokenizer, prompts, chosen_responses, rejected_responses, max_length)
+
+    pdev = _model_device(policy_model)
+    pol_c, _ = response_logprobs_from_batch(policy_model, _to_device(batch["chosen"], pdev))
+    pol_r, _ = response_logprobs_from_batch(policy_model, _to_device(batch["rejected"], pdev))
+
+    rdev = _model_device(reference_model)
+    with torch.no_grad():                      # frozen reference: no graph, no gradients
+        ref_c, _ = response_logprobs_from_batch(reference_model, _to_device(batch["chosen"], rdev))
+        ref_r, _ = response_logprobs_from_batch(reference_model, _to_device(batch["rejected"], rdev))
+
+    return compute_dpo_loss_from_logps(pol_c, pol_r, ref_c, ref_r, beta)
