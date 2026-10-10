@@ -1,0 +1,23 @@
+[
+  {
+    "id": "alpaca_eval_0",
+    "instruction": "What are the names of some famous actors that started their careers on Broadway?",
+    "output": "Some famous actors that started their careers on Broadway include:\n\n1. Marlon Brando - \"The Godfather\"\n2. Marlon Brando - \"The Godfather\"\n3. Marlon Brando - \"The Godfather\"\n4. Marlon Brando - \"The Godfather\"\n5. Marlon Brando - \"The Godfather\"\n6. Marlon Brando - \"The Godfather\"\n7. Marlon Brando - \"The Godfather\"\n8. Marlon Brando - \"The Godfather\"\n9. Marlon Brando - \"The Godfather\"\n10. Marlon Brando - \"The Godfather\"\n11. Marlon Brando - \"The Godfather\"\n12. Marlon Brando - \"The Godfather\"\n13. Marlon Brando - \"The Godfather\"\n14. Marlon Brando - \"The Godfather\"\n15. Marlon Brando - \"The Godfather\"\n16. Marlon Brando - \"The Godfather\"\n17. Marlon Brando - \"The Godfather\"\n18. Marlon Brando - \"The Godfather\"\n19. Marlon Brando - \"The Godfather\"\n20. Marlon Brando",
+    "generator": "qwen2.5-0.5b-base",
+    "dataset": "alpaca_eval"
+  },
+  {
+    "id": "alpaca_eval_2",
+    "instruction": "Hi, my sister and her girlfriends want me to play kickball with them. Can you explain how the game is played, so they don't take advantage of me?",
+    "output": "Sure, I'd be happy to help! Kickball is a popular sport that involves two teams of four players each. The game is played on a rectangular field with a goalpost at each end. The objective of the game is to score points by kicking the ball into the opponent's goal.\n\nTo play kickball, the players stand on opposite sides of the field and line up in a formation. The first player in each team takes the ball and kicks it towards the goalpost. The next player in each team takes the ball and kicks it towards the goalpost. This continues until one team has scored a point. The team that scores the most points wins the game.\n\nTo avoid taking advantage of you, the players should keep their hands on the ball and keep their eyes on the ball. They should also be careful not to make any mistakes or make any mistakes. If they make a mistake, they should try to correct it before the next play.",
+    "generator": "qwen2.5-0.5b-base",
+    "dataset": "alpaca_eval"
+  },
+  {
+    "id": "alpaca_eval_3",
+    "instruction": "What is some cool music from the 1920s?",
+    "output": "The 1920s was a time of great cultural and artistic innovation, and there were many talented musicians who contributed to the genre. Some of the most famous and influential musicians of the era include:\n\n1. Louis Armstrong: A jazz musician who is widely regarded as one of the greatest jazz musicians of all time. He is known for his powerful vocals, improvisational skills, and his ability to create a unique sound that blended jazz with blues and country music.\n\n2. Duke Ellington: A jazz musician who is considered one of the greatest jazz musicians of all time. He is known for his innovative compositions, including \"Take the A Train\" and \"Take the A Train, Take the A Train.\"\n\n3. Charlie Parker: A jazz musician who is known for his innovative use of the saxophone. He is considered one of the greatest jazz musicians of all time and is often referred to as the \"father of jazz.\"\n\n4. Billie Holiday: A jazz musician who is known for her powerful vocals and her ability to convey emotion through her music. She is considered one of the greatest jazz singers of all time and is often referred to as the \"Queen of Jazz.\"\n\n5. Count Basie: A jazz musician who is known for his innovative use of the trumpet",
+    "generator": "qwen2.5-0.5b-base",
+    "dataset": "alpaca_eval"
+  }
+]
