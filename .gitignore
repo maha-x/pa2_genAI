@@ -1,2 +1,7 @@
 __pycache__/
-*.py[cod]
+*.egg-info/
+*.pt
+*.safetensors
+*.bin
+*.zip
+outputs/checkpoints/
