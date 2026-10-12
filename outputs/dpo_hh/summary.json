@@ -1,0 +1,8 @@
+{
+  "best_step": 300,
+  "best_val_reward_acc": 0.6450000405311584,
+  "best_val_loss": 0.6311406493186951,
+  "steps": 468,
+  "minutes": 99.49330070813497,
+  "peak_mem_gb": 11.716222464
+}
