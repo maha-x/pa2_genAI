@@ -38,6 +38,7 @@ def main():
             f.write(json.dumps({
                 "pair_id": i,
                 "instruction": sft[i]["instruction"],
+                "category": sft[i].get("category"),
                 "response_a": first["output"],
                 "response_b": second["output"],
                 "hidden": {"a": names[0], "b": names[1]},   # judge never sees this
