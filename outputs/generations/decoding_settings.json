@@ -1,0 +1,8 @@
+{
+  "decoding": "greedy (do_sample=False, no temperature or top-p)",
+  "extra_flags": "--repetition_penalty 1.1",
+  "max_new_tokens": 256,
+  "batch_size": 16,
+  "prompt_template": "### Instruction:\\n{instruction}\\n\\n### Response:\\n",
+  "same_settings_for_all_models": true
+}

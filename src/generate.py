@@ -25,6 +25,7 @@ def main():
     p.add_argument("--max_new_tokens", type=int, default=256)
     p.add_argument("--batch_size", type=int, default=16)
     p.add_argument("--repetition_penalty", type=float, default=1.0)
+    p.add_argument("--no_repeat_ngram_size", type=int, default=0)
     p.add_argument("--limit", type=int, default=None)
     args = p.parse_args()
 
@@ -62,6 +63,7 @@ def main():
                 max_new_tokens=args.max_new_tokens,
                 do_sample=False,  # greedy decoding
                 repetition_penalty=args.repetition_penalty,
+                no_repeat_ngram_size=args.no_repeat_ngram_size,
                 pad_token_id=tok.pad_token_id,
                 eos_token_id=tok.eos_token_id,
             )
