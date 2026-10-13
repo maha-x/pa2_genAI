@@ -1,0 +1,5 @@
+{
+  "versionNumber": 1,
+  "name": "pairwise_judge_batch",
+  "definition": "    @kbench.task(name=\"pairwise_judge_batch\")\n    def judge_task(llm, prompt: str):\n        box[\"text\"] = str(llm.prompt(prompt))\n"
+}

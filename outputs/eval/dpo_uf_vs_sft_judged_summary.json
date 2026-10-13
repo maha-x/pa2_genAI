@@ -1,0 +1,28 @@
+{
+  "by_category": {
+    "unknown_category": {
+      "n": 300,
+      "wins": 114,
+      "losses": 146,
+      "ties": 40,
+      "unknown": 0,
+      "failed": 0,
+      "win_rate_excluding_ties": 0.43846153846153846,
+      "win_rate_ties_as_half": 0.44666666666666666
+    }
+  },
+  "target": "dpo_uf",
+  "baseline": "sft",
+  "n_pairs": 300,
+  "wins": 114,
+  "losses": 146,
+  "ties": 40,
+  "unknown": 0,
+  "failed": 0,
+  "win_rate_excluding_ties": 0.43846153846153846,
+  "win_rate_ties_as_half": 0.44666666666666666,
+  "tie_rate": 0.13333333333333333,
+  "unknown_rate": 0.0,
+  "failure_rate": 0.0,
+  "share_of_A_among_decisive": 0.5692307692307692
+}
