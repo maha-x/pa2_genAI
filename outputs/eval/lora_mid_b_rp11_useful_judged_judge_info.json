@@ -1,0 +1,8 @@
+{
+  "requested_model": "google/gemini-3.6-flash",
+  "used_model": "google/gemini-3.6-flash",
+  "mode": "useful",
+  "batch_size": 5,
+  "sleep_seconds": 5.0,
+  "max_retries": 3
+}

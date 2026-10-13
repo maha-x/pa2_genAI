@@ -1,0 +1,58 @@
+{
+  "by_category": {
+    "cooking": {
+      "n": 8,
+      "wins": 1,
+      "losses": 0,
+      "ties": 7,
+      "unknown": 0,
+      "failed": 0,
+      "win_rate_excluding_ties": 1.0,
+      "win_rate_ties_as_half": 0.5625
+    },
+    "coding": {
+      "n": 6,
+      "wins": 0,
+      "losses": 0,
+      "ties": 6,
+      "unknown": 0,
+      "failed": 0,
+      "win_rate_excluding_ties": null,
+      "win_rate_ties_as_half": 0.5
+    },
+    "general_help": {
+      "n": 8,
+      "wins": 0,
+      "losses": 0,
+      "ties": 8,
+      "unknown": 0,
+      "failed": 0,
+      "win_rate_excluding_ties": null,
+      "win_rate_ties_as_half": 0.5
+    },
+    "safety_sensitive": {
+      "n": 8,
+      "wins": 1,
+      "losses": 5,
+      "ties": 2,
+      "unknown": 0,
+      "failed": 0,
+      "win_rate_excluding_ties": 0.16666666666666666,
+      "win_rate_ties_as_half": 0.25
+    }
+  },
+  "target": "lora_beta03_rp11",
+  "baseline": "base",
+  "n_pairs": 30,
+  "wins": 2,
+  "losses": 5,
+  "ties": 23,
+  "unknown": 0,
+  "failed": 0,
+  "win_rate_excluding_ties": 0.2857142857142857,
+  "win_rate_ties_as_half": 0.45,
+  "tie_rate": 0.7666666666666667,
+  "unknown_rate": 0.0,
+  "failure_rate": 0.0,
+  "share_of_A_among_decisive": 0.14285714285714285
+}
